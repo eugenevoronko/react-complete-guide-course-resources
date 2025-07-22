@@ -13,10 +13,10 @@ function App() {
         console.log(selectedButton);
     }
 
-    let tabContent = <p>Please select a topic.</p>
+    let tabContent = <p>Please select a topic.</p>;
 
     if (selectedButton) {
-        tabContent =
+        tabContent = (
             <div id="tab-content">
                 <h3>{EXAMPLES[selectedButton].title}</h3>
                 <p>{EXAMPLES[selectedButton].description}</p>
@@ -24,6 +24,7 @@ function App() {
                     <code>{EXAMPLES[selectedButton].code}</code>
                 </pre>
             </div>
+        );
     }
 
     return (
@@ -33,22 +34,39 @@ function App() {
                 <section id="core-concepts">
                     <h2>Core Concepts</h2>
                     <ul>
-                        {CORE_CONCEPTS.map((coreConcept) => (<CoreConcept key={coreConcept.title} {...coreConcept} />))}
+                        {CORE_CONCEPTS.map((coreConcept) => (
+                            <CoreConcept
+                                key={coreConcept.title}
+                                {...coreConcept}
+                            />
+                        ))}
                     </ul>
                 </section>
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton isSelected={selectedButton === "components"} onSelect={() => handleSelect("components")}>
+                        <TabButton
+                            isSelected={selectedButton === "components"}
+                            onSelect={() => handleSelect("components")}
+                        >
                             Components
                         </TabButton>
-                        <TabButton isSelected={selectedButton === "jsx"} onSelect={() => handleSelect("jsx")}>
+                        <TabButton
+                            isSelected={selectedButton === "jsx"}
+                            onSelect={() => handleSelect("jsx")}
+                        >
                             JSX
                         </TabButton>
-                        <TabButton isSelected={selectedButton === "props"} onSelect={() => handleSelect("props")}>
+                        <TabButton
+                            isSelected={selectedButton === "props"}
+                            onSelect={() => handleSelect("props")}
+                        >
                             Props
                         </TabButton>
-                        <TabButton isSelected={selectedButton === "state"} onSelect={() => handleSelect("state")}>
+                        <TabButton
+                            isSelected={selectedButton === "state"}
+                            onSelect={() => handleSelect("state")}
+                        >
                             State
                         </TabButton>
                     </menu>
